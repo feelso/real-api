@@ -33,7 +33,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Poker Shark" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tR2-Jl-QlP">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tR2-Jl-QlP">
                         <rect key="frame" x="245" y="10" width="100" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
@@ -44,6 +44,11 @@
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="opponentsTitle" destination="tR2-Jl-QlP" id="ZgS-Du-JWf"/>
+                <outlet property="sectionName" destination="JaJ-m3-YIS" id="eHM-jg-ijl"/>
+                <outlet property="userTitle" destination="dzw-ok-Z4o" id="5Zr-hX-iPY"/>
+            </connections>
             <point key="canvasLocation" x="358" y="96"/>
         </collectionViewCell>
     </objects>

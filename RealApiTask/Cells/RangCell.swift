@@ -10,9 +10,11 @@ import UIKit
 
 class RangCell: UICollectionViewCell {
 
+    @IBOutlet weak var sectionName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        sectionName.font = .sectionLabelFont
     }
 
 }

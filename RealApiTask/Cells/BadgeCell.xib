@@ -13,50 +13,44 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BadgeCell" id="gTV-IL-0wX" customClass="BadgeCell" customModule="RealApiTask" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="68" height="160"/>
+            <rect key="frame" x="0.0" y="0.0" width="64" height="155"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="68" height="160"/>
+                <rect key="frame" x="0.0" y="0.0" width="64" height="155"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="badgeHalloffame" translatesAutoresizingMaskIntoConstraints="NO" id="dXp-x2-wJ4">
-                        <rect key="frame" x="3" y="30" width="60" height="128"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dXp-x2-wJ4">
+                        <rect key="frame" x="3" y="20" width="60" height="128"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="badgeNewyork" translatesAutoresizingMaskIntoConstraints="NO" id="8rK-06-JXj">
-                        <rect key="frame" x="4" y="30" width="60" height="101"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aay-P8-Kxk">
+                        <rect key="frame" x="10" y="3" width="15" height="15"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icStar" translatesAutoresizingMaskIntoConstraints="NO" id="aay-P8-Kxk">
-                        <rect key="frame" x="10" y="13" width="15" height="15"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yb9-gJ-hHQ">
+                        <rect key="frame" x="25" y="0.0" width="15" height="15"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icStar" translatesAutoresizingMaskIntoConstraints="NO" id="Yb9-gJ-hHQ">
-                        <rect key="frame" x="25" y="10" width="15" height="15"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L8q-DB-0OL">
+                        <rect key="frame" x="40" y="3" width="15" height="15"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icStar2" translatesAutoresizingMaskIntoConstraints="NO" id="L8q-DB-0OL">
-                        <rect key="frame" x="40" y="13" width="15" height="15"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8rK-06-JXj">
+                        <rect key="frame" x="4" y="34" width="60" height="101"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="68" height="158"/>
+            <size key="customSize" width="64" height="153"/>
             <connections>
-                <outlet property="badgeView" destination="dXp-x2-wJ4" id="MRe-Iz-fe2"/>
-                <outlet property="ribbonView" destination="dXp-x2-wJ4" id="Kpv-vz-33q"/>
-                <outlet property="star1" destination="aay-P8-Kxk" id="gKJ-Ay-xCL"/>
-                <outlet property="star2" destination="Yb9-gJ-hHQ" id="wga-h3-b3G"/>
-                <outlet property="star3" destination="L8q-DB-0OL" id="ACo-Dx-SGb"/>
+                <outlet property="badgeView" destination="8rK-06-JXj" id="c1B-gW-KJk"/>
+                <outlet property="centerStar" destination="Yb9-gJ-hHQ" id="wga-h3-b3G"/>
+                <outlet property="leftStar" destination="aay-P8-Kxk" id="gKJ-Ay-xCL"/>
+                <outlet property="ribbonView" destination="dXp-x2-wJ4" id="5N8-ir-7vf"/>
+                <outlet property="rightStar" destination="L8q-DB-0OL" id="ACo-Dx-SGb"/>
             </connections>
-            <point key="canvasLocation" x="168.11594202898553" y="143.97321428571428"/>
+            <point key="canvasLocation" x="165.21739130434784" y="147.65625"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="badgeHalloffame" width="60" height="101"/>
-        <image name="badgeNewyork" width="60" height="101"/>
-        <image name="icStar" width="19" height="19"/>
-        <image name="icStar2" width="15" height="15"/>
-    </resources>
 </document>

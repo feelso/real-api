@@ -18,6 +18,7 @@ import UIKit
 
 class UserGameStyleCell: UICollectionViewCell {
 
+    @IBOutlet var sectionNameLabels: [UILabel]!
     @IBOutlet weak var agressionLabel: UILabel!
     @IBOutlet weak var foldRateLabel: UILabel!
     @IBOutlet weak var winRateLabel: UILabel!
@@ -31,9 +32,47 @@ class UserGameStyleCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        
         setupProgressesWith(progressView: agressionProgressView, progressColor: orangeProgressColor, trackColor:    orangeTrackColor, progress: 0.55)
         setupProgressesWith(progressView: foldProgressView, progressColor: foldProgressColor, trackColor: foldTrackColor, progress: 0.24)
         setupProgressesWith(progressView: winRateProgressView, progressColor: winProgressColor, trackColor: winTrackColor, progress: 0.63)
+        
+    }
+    
+    func setupViews() {
+        if let model = InfoModel.singleCellModel[String(describing: UserGameStyleCell.self)] as? UserGameStyleCellModel {
+            
+            if let winRate = model.winRate {
+                let rate = winRate*100
+                DispatchQueue.main.async {
+                    self.winRateProgressView.progress = Float(winRate)
+                    self.winRateLabel.text = "\(Int(rate))%"
+                    self.winRateLabel.font = .winFoldAgresFont
+                }
+            }
+            
+            if let foldRate = model.foldRate {
+                let rate = foldRate*100
+                DispatchQueue.main.async {
+                    self.foldProgressView.progress = Float(foldRate)
+                    self.foldRateLabel.text = "\(Int(rate))%"
+                    self.foldRateLabel.font = .winFoldAgresFont
+                }
+            }
+            
+            if let agress = model.agression {
+                let rate = agress*100
+                DispatchQueue.main.async {
+                    self.agressionProgressView.progress = Float(agress)
+                    self.agressionLabel.text = "\(Int(rate))%"
+                    self.agressionLabel.font = .winFoldAgresFont
+                }
+            }
+        }
+        
+        for section in sectionNameLabels {
+            section.font = .sectionNameFont
+        }
         
     }
     
@@ -47,4 +86,10 @@ class UserGameStyleCell: UICollectionViewCell {
         progressView.clipsToBounds = true
     }
 
+}
+
+class UserGameStyleCellModel: DataModel {
+    var agression: Double?
+    var foldRate: Double?
+    var winRate: Double?
 }

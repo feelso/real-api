@@ -8,32 +8,44 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
-private let reuseIdentifier2 = "UserGameStyleCell"
-private let reuseIdentifier3 = "CityBadgesCell"
-private let reuseIdentifier4 = "StatisticsCell"
-private let comparisonCell = "ComparisonCell"
+private let userInfoRI = "UserInfoCell"
+private let userGameStyleRI = "UserGameStyleCell"
+private let citiBadgesRI = "CityBadgesCell"
+private let statisticsRI = "StatisticsCell"
+private let comparisonRI = "ComparisonCell"
 
 class MainVC: UICollectionViewController {
-
+    let apiMethods = APIMethods()
+    
+    
+    static var compCelFrameWidth: CGFloat = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0, execute: {
+            self.collectionView.reloadData()
+        })
+
+        apiMethods.getUserData()
+      
         let userInfoCellNib = UINib.init(nibName: String(describing: UserInfoCell.self), bundle: nil)
         let userGameStyleCellNib = UINib.init(nibName: String(describing: UserGameStyleCell.self), bundle: nil)
         let statisticsCellNib = UINib.init(nibName: String(describing: StatisticsCell.self), bundle: nil)
       
-        self.collectionView.register(userInfoCellNib, forCellWithReuseIdentifier: reuseIdentifier)
-        self.collectionView.register(userGameStyleCellNib, forCellWithReuseIdentifier: reuseIdentifier2)
-        self.collectionView.register(CityBadgesCell.self, forCellWithReuseIdentifier: reuseIdentifier3)
-        self.collectionView.register(statisticsCellNib, forCellWithReuseIdentifier: reuseIdentifier4)
-        self.collectionView.register(ComparisonCell.self, forCellWithReuseIdentifier: comparisonCell)
+        self.collectionView.register(userInfoCellNib, forCellWithReuseIdentifier: userInfoRI)
+        self.collectionView.register(userGameStyleCellNib, forCellWithReuseIdentifier: userGameStyleRI)
+        self.collectionView.register(CityBadgesCell.self, forCellWithReuseIdentifier: citiBadgesRI)
+        self.collectionView.register(statisticsCellNib, forCellWithReuseIdentifier: statisticsRI)
+        self.collectionView.register(ComparisonCell.self, forCellWithReuseIdentifier: comparisonRI)
 
 
-      //  self.collectionView!.register(UserInfoCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
     }
 
-   
+    func setups() {
+        collectionView.reloadData()
+    }
 
     // MARK: UICollectionViewDataSource
 
@@ -45,27 +57,35 @@ class MainVC: UICollectionViewController {
         
         return 5
     }
+    
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell = UICollectionViewCell()
+        let cell = UICollectionViewCell()
+       
         if indexPath.row == 0 {
-         cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! UserInfoCell
+         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: userInfoRI, for: indexPath) as! UserInfoCell
+            cell.setup()
+            return cell
         } else if indexPath.row == 1 {
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier2, for: indexPath) as! UserGameStyleCell
+           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: userGameStyleRI, for: indexPath) as! UserGameStyleCell
+            cell.setupViews()
+        return cell
         } else if indexPath.row == 2 {
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier3, for: indexPath) as! CityBadgesCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: citiBadgesRI, for: indexPath) as! CityBadgesCell
+            cell.installData()
+            return cell
         } else if indexPath.row == 3 {
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier4, for: indexPath) as! StatisticsCell
+           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: statisticsRI, for: indexPath) as! StatisticsCell
+            return cell
         } else if indexPath.row == 4 {
-            cell = collectionView.dequeueReusableCell(withReuseIdentifier: comparisonCell, for: indexPath) as! ComparisonCell
-            cell.layer.cornerRadius = 8
-            cell.backgroundColor = .gray
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: comparisonRI, for: indexPath) as! ComparisonCell
+            
+            return cell
         }
 
-    
-        return cell
+    return cell
     }
-    
+
     
 }
 
@@ -78,11 +98,15 @@ extension MainVC: UICollectionViewDelegateFlowLayout {
         } else if indexPath.row == 2 {
             return CGSize(width: view.frame.width, height: 150)
         } else if indexPath.row == 3 {
-            return CGSize(width: view.frame.width, height: 70)
+            return CGSize(width: view.frame.width, height: 50)
         } else if indexPath.row == 4 {
-            return CGSize(width: view.frame.width, height: 520)
+            MainVC.compCelFrameWidth = view.frame.width - 20
+            return CGSize(width: view.frame.width - 20, height: 545)
         }
 
         return CGSize(width: 50, height: 400)
     }
+    
+
+    
 }

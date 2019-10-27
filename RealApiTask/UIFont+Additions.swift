@@ -2,7 +2,7 @@
 //  UIFont+Additions.swift
 //  1
 //
-//  Generated on Zeplin. (10/21/2019).
+//  Generated on Zeplin. (10/26/2019).
 //  Copyright (c) 2019 __MyCompanyName__. All rights reserved.
 //
 

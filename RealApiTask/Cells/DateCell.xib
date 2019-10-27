@@ -44,6 +44,10 @@
             </view>
             <color key="backgroundColor" red="0.98030644655227661" green="0.98044699430465698" blue="0.98027580976486206" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="opponentsDate" destination="jba-ir-ySt" id="oJd-VY-ieu"/>
+                <outlet property="sectionName" destination="MBI-sj-tiI" id="pxR-De-UJS"/>
+            </connections>
         </collectionViewCell>
     </objects>
 </document>

@@ -34,7 +34,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="20%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XlG-eY-f20">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XlG-eY-f20">
                         <rect key="frame" x="76" y="10" width="29" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -54,7 +54,10 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="252" height="112"/>
             <connections>
+                <outlet property="opponentsRate" destination="7V5-l3-3XX" id="e1K-pj-jgV"/>
+                <outlet property="sectionName" destination="Wc1-ik-jGr" id="KCx-dO-WLD"/>
                 <outlet property="statLabel" destination="Wc1-ik-jGr" id="grW-SJ-2xv"/>
+                <outlet property="userRate" destination="XlG-eY-f20" id="MW4-3v-FHg"/>
                 <outletCollection property="statIcon" destination="F8E-ul-p7H" collectionClass="NSMutableArray" id="aM3-Py-R3M"/>
                 <outletCollection property="statIcon" destination="0ou-0Z-or2" collectionClass="NSMutableArray" id="bgQ-le-Hkf"/>
             </connections>

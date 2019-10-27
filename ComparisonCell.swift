@@ -14,15 +14,23 @@ private let titleCellId = "TitleCell"
 private let winAgressFoldCellId = "WinAgressFoldCell"
 private let lastGamesCellId = "LastGamesCell"
 private let dateCellId = "DateCell"
+private let reportAbuseCellId = "ReportAbuseCell"
 
 
 
 class ComparisonCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    var model: [String: DataModel]?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0, execute: {
+            self.gameStatsCollectioView.reloadData()
+        })
     }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -33,29 +41,32 @@ class ComparisonCell: UICollectionViewCell, UICollectionViewDataSource, UICollec
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         
-        let collectionView = UICollectionView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: 450, height: 600)), collectionViewLayout: layout)
-        
-        collectionView.backgroundColor = UIColor.clear
+        let collectionView = UICollectionView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: CGSize(width: MainVC.compCelFrameWidth , height: 545)), collectionViewLayout: layout)
+        collectionView.backgroundColor = UIColor.yellow
+        collectionView.layer.cornerRadius = 8
+        collectionView.layer.shadowColor = UIColor.black.cgColor
+        collectionView.layer.shadowRadius = 15
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
         return collectionView
     }()
     
     func setupViews() {
-        let nib = UINib.init(nibName: String(describing: BestHandCell.self), bundle: nil)
-        let nib2 = UINib.init(nibName: String(describing: RangCell.self), bundle: nil)
-        let nib3 = UINib.init(nibName: String(describing: TitleCell.self), bundle: nil)
-        let nib4 = UINib.init(nibName: String(describing: WinAgressFoldCell.self), bundle: nil)
-        let nib5 = UINib.init(nibName: String(describing: LastGamesCell.self), bundle: nil)
-        let nib6 = UINib.init(nibName: String(describing: DateCell.self), bundle: nil)
+        let bestHandCellNib = UINib.init(nibName: String(describing: BestHandCell.self), bundle: nil)
+        let rangCellNib = UINib.init(nibName: String(describing: RangCell.self), bundle: nil)
+        let titleCellNib = UINib.init(nibName: String(describing: TitleCell.self), bundle: nil)
+        let WAFNib = UINib.init(nibName: String(describing: WinAgressFoldCell.self), bundle: nil)
+        let lastGamesNib = UINib.init(nibName: String(describing: LastGamesCell.self), bundle: nil)
+        let dataCellNib = UINib.init(nibName: String(describing: DateCell.self), bundle: nil)
+        let reportAbuseNib = UINib.init(nibName: String(describing: ReportAbuseCell.self), bundle: nil)
 
-        self.gameStatsCollectioView.register(nib, forCellWithReuseIdentifier: bestHandId)
-        self.gameStatsCollectioView.register(nib2, forCellWithReuseIdentifier: rangCellId)
-        self.gameStatsCollectioView.register(nib3, forCellWithReuseIdentifier: titleCellId)
-        self.gameStatsCollectioView.register(nib4, forCellWithReuseIdentifier: winAgressFoldCellId)
-        self.gameStatsCollectioView.register(nib5, forCellWithReuseIdentifier: lastGamesCellId)
-        self.gameStatsCollectioView.register(nib6, forCellWithReuseIdentifier: dateCellId)
-
+        self.gameStatsCollectioView.register(bestHandCellNib, forCellWithReuseIdentifier: bestHandId)
+        self.gameStatsCollectioView.register(rangCellNib, forCellWithReuseIdentifier: rangCellId)
+        self.gameStatsCollectioView.register(titleCellNib, forCellWithReuseIdentifier: titleCellId)
+        self.gameStatsCollectioView.register(WAFNib, forCellWithReuseIdentifier: winAgressFoldCellId)
+        self.gameStatsCollectioView.register(lastGamesNib, forCellWithReuseIdentifier: lastGamesCellId)
+        self.gameStatsCollectioView.register(dataCellNib, forCellWithReuseIdentifier: dateCellId)
+        self.gameStatsCollectioView.register(reportAbuseNib, forCellWithReuseIdentifier: reportAbuseCellId)
 
         
         self.addSubview(gameStatsCollectioView)
@@ -66,66 +77,100 @@ class ComparisonCell: UICollectionViewCell, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return 9
     }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell = UICollectionViewCell()
-        let cell2 =  collectionView.dequeueReusableCell(withReuseIdentifier: winAgressFoldCellId, for: indexPath) as! WinAgressFoldCell
+        let cell = UICollectionViewCell()
         
         if indexPath.row == 0 {
-         cell =  collectionView.dequeueReusableCell(withReuseIdentifier: bestHandId, for: indexPath) as! BestHandCell
+         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: bestHandId, for: indexPath) as! BestHandCell
+            cell.setups()
+            cell.backgroundColor = .whiteTwo
+            
+            return cell
+        
         } else if indexPath.row == 1 {
-            cell =  collectionView.dequeueReusableCell(withReuseIdentifier: rangCellId, for: indexPath) as! RangCell
+           let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: rangCellId, for: indexPath) as! RangCell
+            cell.backgroundColor = .white
+            return cell
+
         } else if indexPath.row == 2 {
-            cell =  collectionView.dequeueReusableCell(withReuseIdentifier: titleCellId, for: indexPath) as! TitleCell
+            let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: titleCellId, for: indexPath) as! TitleCell
+            cell.setups()
+            cell.backgroundColor = .whiteTwo
+
+            return cell
+            
         } else if indexPath.row == 3 {
-            for image in cell2.statIcon {
-                image.image = UIImage(named: "icWinRate")
-            }
-            cell2.statLabel.text = "WIN RATE"
-            cell2.backgroundColor = #colorLiteral(red: 0.9803064466, green: 0.9804469943, blue: 0.9802758098, alpha: 1)
-            return cell2
+           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: winAgressFoldCellId, for: indexPath) as! WinAgressFoldCell
+            cell.setupsForCell(.winRate)
+            cell.backgroundColor = .white
+
+            return cell
             
         } else if indexPath.row == 4 {
-            for image in cell2.statIcon {
-                image.image = UIImage(named: "icAgression")
-            }
-            cell2.statLabel.text = "AGRESSION"
-          
-            cell2.backgroundColor = .white
-        
-            return cell2
-        } else if indexPath.row == 5 {
-            
-            for image in cell2.statIcon {
-                image.image = UIImage(named: "icFoldRate")
-            }
-            cell2.statLabel.text = "FOLD RATIO"
-            cell2.backgroundColor = #colorLiteral(red: 0.9803064466, green: 0.9804469943, blue: 0.9802758098, alpha: 1)
+           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: winAgressFoldCellId, for: indexPath) as! WinAgressFoldCell
+           cell.setupsForCell(.foldRate)
+            cell.backgroundColor = .whiteTwo
 
-            return cell2
+          
+            return cell
+        } else if indexPath.row == 5 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: winAgressFoldCellId, for: indexPath) as! WinAgressFoldCell
+            cell.setupsForCell(.agression)
+            cell.backgroundColor = .white
+
+
+            return cell
         } else if indexPath.row == 6 {
-            cell =  collectionView.dequeueReusableCell(withReuseIdentifier: lastGamesCellId, for: indexPath) as! LastGamesCell
+            let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: lastGamesCellId, for: indexPath) as! LastGamesCell
+            cell.setups()
+            cell.backgroundColor = .whiteTwo
+
+            return cell
         } else if indexPath.row == 7 {
-            cell =  collectionView.dequeueReusableCell(withReuseIdentifier: dateCellId, for: indexPath) as! DateCell
+           let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: dateCellId, for: indexPath) as! DateCell
+            cell.setups()
+            cell.backgroundColor = .white
+
+            return cell
+        } else if indexPath.row == 8 {
+           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reportAbuseCellId, for: indexPath) as! ReportAbuseCell
+            cell.backgroundColor = .whiteTwo
+            return cell
         }
         
         return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+  
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = MainVC.compCelFrameWidth
         if indexPath.row == 0 {
-            return CGSize(width: 400, height: 150)
-        } else if indexPath.row == 1, indexPath.row == 6 {
-            return CGSize(width: 400, height: 60)
-        } else if indexPath.row == 2, indexPath.row == 3, indexPath.row == 4, indexPath.row == 5, indexPath.row == 7 {
-            return CGSize(width: 400, height: 40)
+            return CGSize(width: width, height: 150)
+        } else if indexPath.row == 1 {
+            return CGSize(width: width, height: 50)
+        } else if indexPath.row == 2 {
+            return CGSize(width: width, height: 30)
+        } else if indexPath.row == 3 {
+            return CGSize(width: width, height: 40)
+        } else if indexPath.row == 4 {
+            return CGSize(width: width, height: 45)
+        } else if indexPath.row == 8 {
+            return CGSize(width: width, height: 80)
         }
-        return CGSize(width: 400, height: 40)
+        
+        return CGSize(width: width, height: 50)
     }
 
     

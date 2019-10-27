@@ -12,7 +12,23 @@ class TitleCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
 
+    }
+    
+    @IBOutlet weak var sectionName: UILabel!
+    @IBOutlet weak var userTitle: UILabel!
+    @IBOutlet weak var opponentsTitle: UILabel!
+    
+    func setups() {
+        if let model = InfoModel.singleCellModel[String(describing: TitleCell.self)] as? TitleCellModel{
+            DispatchQueue.main.async {
+                self.opponentsTitle.text = model.name
+            }
+        }
+        sectionName.font = .sectionLabelFont
+    }
+}
+
+class TitleCellModel: DataModel {
+    var name: String?
 }

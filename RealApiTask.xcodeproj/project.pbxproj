@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B83E40DB2360A1A40083485B /* ReportAbuseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83E40D92360A1A40083485B /* ReportAbuseCell.swift */; };
+		B83E40DC2360A1A40083485B /* ReportAbuseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B83E40DA2360A1A40083485B /* ReportAbuseCell.xib */; };
+		B83E40DE2361F52D0083485B /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83E40DD2361F52D0083485B /* DataModel.swift */; };
+		B83E40E1236436DA0083485B /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83E40E0236436DA0083485B /* CardModel.swift */; };
 		B8F30CC9235C94ED00F3C7E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F30CC8235C94ED00F3C7E8 /* AppDelegate.swift */; };
 		B8F30CCE235C94ED00F3C7E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8F30CCC235C94ED00F3C7E8 /* Main.storyboard */; };
 		B8F30CD0235C94EE00F3C7E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8F30CCF235C94EE00F3C7E8 /* Assets.xcassets */; };
@@ -39,6 +43,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B83E40D92360A1A40083485B /* ReportAbuseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportAbuseCell.swift; sourceTree = "<group>"; };
+		B83E40DA2360A1A40083485B /* ReportAbuseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ReportAbuseCell.xib; path = ../ReportAbuseCell.xib; sourceTree = "<group>"; };
+		B83E40DD2361F52D0083485B /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		B83E40E0236436DA0083485B /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		B8F30CC5235C94ED00F3C7E8 /* RealApiTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealApiTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F30CC8235C94ED00F3C7E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B8F30CCD235C94ED00F3C7E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -49,27 +57,27 @@
 		B8F30CDC235C952000F3C7E8 /* APIMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMethods.swift; sourceTree = "<group>"; };
 		B8F30CDE235C95C000F3C7E8 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		B8F30CE2235C963700F3C7E8 /* UserInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCell.swift; sourceTree = "<group>"; };
-		B8F30CE3235C963700F3C7E8 /* UserInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoCell.xib; sourceTree = "<group>"; };
+		B8F30CE3235C963700F3C7E8 /* UserInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = UserInfoCell.xib; path = ../UserInfoCell.xib; sourceTree = "<group>"; };
 		B8F30CEB235DF9CE00F3C7E8 /* UserGameStyleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGameStyleCell.swift; sourceTree = "<group>"; };
-		B8F30CEC235DF9CE00F3C7E8 /* UserGameStyleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserGameStyleCell.xib; sourceTree = "<group>"; };
+		B8F30CEC235DF9CE00F3C7E8 /* UserGameStyleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = UserGameStyleCell.xib; path = ../UserGameStyleCell.xib; sourceTree = "<group>"; };
 		B8F30CEF235E24E600F3C7E8 /* StatisticsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCell.swift; sourceTree = "<group>"; };
-		B8F30CF0235E24E600F3C7E8 /* StatisticsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatisticsCell.xib; sourceTree = "<group>"; };
+		B8F30CF0235E24E600F3C7E8 /* StatisticsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StatisticsCell.xib; path = ../StatisticsCell.xib; sourceTree = "<group>"; };
 		B8F30CF3235E251500F3C7E8 /* CityBadgesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityBadgesCell.swift; sourceTree = "<group>"; };
 		B8F30CF7235E34B700F3C7E8 /* BadgeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeCell.swift; sourceTree = "<group>"; };
-		B8F30CF8235E34B700F3C7E8 /* BadgeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BadgeCell.xib; sourceTree = "<group>"; };
+		B8F30CF8235E34B700F3C7E8 /* BadgeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BadgeCell.xib; path = ../BadgeCell.xib; sourceTree = "<group>"; };
 		B8F30CFF235F426B00F3C7E8 /* ComparisonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ComparisonCell.swift; path = ../../ComparisonCell.swift; sourceTree = "<group>"; };
 		B8F30D01235F437A00F3C7E8 /* BestHandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestHandCell.swift; sourceTree = "<group>"; };
-		B8F30D02235F437A00F3C7E8 /* BestHandCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BestHandCell.xib; sourceTree = "<group>"; };
+		B8F30D02235F437A00F3C7E8 /* BestHandCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BestHandCell.xib; path = ../BestHandCell.xib; sourceTree = "<group>"; };
 		B8F30D05235F4A6600F3C7E8 /* RangCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangCell.swift; sourceTree = "<group>"; };
-		B8F30D06235F4A6600F3C7E8 /* RangCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RangCell.xib; sourceTree = "<group>"; };
+		B8F30D06235F4A6600F3C7E8 /* RangCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RangCell.xib; path = ../RangCell.xib; sourceTree = "<group>"; };
 		B8F30D09235F4C6E00F3C7E8 /* TitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCell.swift; sourceTree = "<group>"; };
-		B8F30D0A235F4C6E00F3C7E8 /* TitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleCell.xib; sourceTree = "<group>"; };
+		B8F30D0A235F4C6E00F3C7E8 /* TitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TitleCell.xib; path = ../TitleCell.xib; sourceTree = "<group>"; };
 		B8F30D0D235F58D400F3C7E8 /* WinAgressFoldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinAgressFoldCell.swift; sourceTree = "<group>"; };
-		B8F30D0E235F58D400F3C7E8 /* WinAgressFoldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WinAgressFoldCell.xib; sourceTree = "<group>"; };
+		B8F30D0E235F58D400F3C7E8 /* WinAgressFoldCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = WinAgressFoldCell.xib; path = ../WinAgressFoldCell.xib; sourceTree = "<group>"; };
 		B8F30D11235F65BA00F3C7E8 /* LastGamesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastGamesCell.swift; sourceTree = "<group>"; };
-		B8F30D12235F65BA00F3C7E8 /* LastGamesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LastGamesCell.xib; sourceTree = "<group>"; };
+		B8F30D12235F65BA00F3C7E8 /* LastGamesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LastGamesCell.xib; path = ../LastGamesCell.xib; sourceTree = "<group>"; };
 		B8F30D15235F799B00F3C7E8 /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
-		B8F30D16235F799B00F3C7E8 /* DateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateCell.xib; sourceTree = "<group>"; };
+		B8F30D16235F799B00F3C7E8 /* DateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DateCell.xib; path = ../DateCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B83E40DF2362029E0083485B /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				B8F30D12235F65BA00F3C7E8 /* LastGamesCell.xib */,
+				B8F30D0E235F58D400F3C7E8 /* WinAgressFoldCell.xib */,
+				B8F30D02235F437A00F3C7E8 /* BestHandCell.xib */,
+				B8F30D16235F799B00F3C7E8 /* DateCell.xib */,
+				B8F30D06235F4A6600F3C7E8 /* RangCell.xib */,
+				B83E40DA2360A1A40083485B /* ReportAbuseCell.xib */,
+				B8F30D0A235F4C6E00F3C7E8 /* TitleCell.xib */,
+				B8F30CF8235E34B700F3C7E8 /* BadgeCell.xib */,
+				B8F30CF0235E24E600F3C7E8 /* StatisticsCell.xib */,
+				B8F30CEC235DF9CE00F3C7E8 /* UserGameStyleCell.xib */,
+				B8F30CE3235C963700F3C7E8 /* UserInfoCell.xib */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		B8F30CBC235C94ED00F3C7E8 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +144,8 @@
 			children = (
 				B8F30CDA235C950000F3C7E8 /* JsonModel.swift */,
 				B8F30CDC235C952000F3C7E8 /* APIMethods.swift */,
+				B83E40E0236436DA0083485B /* CardModel.swift */,
+				B83E40DD2361F52D0083485B /* DataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -136,26 +164,18 @@
 			children = (
 				B8F30CFF235F426B00F3C7E8 /* ComparisonCell.swift */,
 				B8F30D11235F65BA00F3C7E8 /* LastGamesCell.swift */,
-				B8F30D12235F65BA00F3C7E8 /* LastGamesCell.xib */,
 				B8F30D0D235F58D400F3C7E8 /* WinAgressFoldCell.swift */,
-				B8F30D0E235F58D400F3C7E8 /* WinAgressFoldCell.xib */,
 				B8F30D01235F437A00F3C7E8 /* BestHandCell.swift */,
-				B8F30D02235F437A00F3C7E8 /* BestHandCell.xib */,
 				B8F30D05235F4A6600F3C7E8 /* RangCell.swift */,
 				B8F30D15235F799B00F3C7E8 /* DateCell.swift */,
-				B8F30D16235F799B00F3C7E8 /* DateCell.xib */,
-				B8F30D06235F4A6600F3C7E8 /* RangCell.xib */,
 				B8F30D09235F4C6E00F3C7E8 /* TitleCell.swift */,
-				B8F30D0A235F4C6E00F3C7E8 /* TitleCell.xib */,
+				B83E40D92360A1A40083485B /* ReportAbuseCell.swift */,
 				B8F30CE2235C963700F3C7E8 /* UserInfoCell.swift */,
 				B8F30CEB235DF9CE00F3C7E8 /* UserGameStyleCell.swift */,
 				B8F30CEF235E24E600F3C7E8 /* StatisticsCell.swift */,
 				B8F30CF3235E251500F3C7E8 /* CityBadgesCell.swift */,
 				B8F30CF7235E34B700F3C7E8 /* BadgeCell.swift */,
-				B8F30CF8235E34B700F3C7E8 /* BadgeCell.xib */,
-				B8F30CF0235E24E600F3C7E8 /* StatisticsCell.xib */,
-				B8F30CEC235DF9CE00F3C7E8 /* UserGameStyleCell.xib */,
-				B8F30CE3235C963700F3C7E8 /* UserInfoCell.xib */,
+				B83E40DF2362029E0083485B /* New Group */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -228,6 +248,7 @@
 				B8F30CD0235C94EE00F3C7E8 /* Assets.xcassets in Resources */,
 				B8F30CF2235E24E600F3C7E8 /* StatisticsCell.xib in Resources */,
 				B8F30D08235F4A6600F3C7E8 /* RangCell.xib in Resources */,
+				B83E40DC2360A1A40083485B /* ReportAbuseCell.xib in Resources */,
 				B8F30CCE235C94ED00F3C7E8 /* Main.storyboard in Resources */,
 				B8F30D18235F799B00F3C7E8 /* DateCell.xib in Resources */,
 				B8F30D14235F65BA00F3C7E8 /* LastGamesCell.xib in Resources */,
@@ -244,7 +265,9 @@
 				B8F30CDB235C950000F3C7E8 /* JsonModel.swift in Sources */,
 				B8F30CDF235C95C000F3C7E8 /* MainVC.swift in Sources */,
 				B8F30CED235DF9CE00F3C7E8 /* UserGameStyleCell.swift in Sources */,
+				B83E40DB2360A1A40083485B /* ReportAbuseCell.swift in Sources */,
 				B8F30D0B235F4C6E00F3C7E8 /* TitleCell.swift in Sources */,
+				B83E40E1236436DA0083485B /* CardModel.swift in Sources */,
 				B8F30CF1235E24E600F3C7E8 /* StatisticsCell.swift in Sources */,
 				B8F30D00235F426B00F3C7E8 /* ComparisonCell.swift in Sources */,
 				B8F30D13235F65BA00F3C7E8 /* LastGamesCell.swift in Sources */,
@@ -257,6 +280,7 @@
 				B8F30CF5235E251500F3C7E8 /* CityBadgesCell.swift in Sources */,
 				B8F30D03235F437A00F3C7E8 /* BestHandCell.swift in Sources */,
 				B8F30CC9235C94ED00F3C7E8 /* AppDelegate.swift in Sources */,
+				B83E40DE2361F52D0083485B /* DataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

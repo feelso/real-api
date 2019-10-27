@@ -10,19 +10,77 @@ import UIKit
 
 class BadgeCell: UICollectionViewCell {
 
-    @IBOutlet weak var star1: UIImageView!
-    @IBOutlet weak var star2: UIImageView!
-    @IBOutlet weak var star3: UIImageView!
+    @IBOutlet weak var leftStar: UIImageView!
+    @IBOutlet weak var centerStar: UIImageView!
+    @IBOutlet weak var rightStar: UIImageView!
     @IBOutlet weak var badgeView: UIImageView!
     @IBOutlet weak var ribbonView: UIImageView!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-//        badgeView.backgroundColor = .blue
-//        ribbonView.backgroundColor = .red
-//        star2.backgroundColor = .yellow
+
+        
     }
 
+    
+    func installStarsWithAmount(_ number: Int) {
+        guard (0...3).contains(number) else { return }
+        
+        if number == 0 {
+            DispatchQueue.main.async {
+                self.leftStar.image = UIImage(named: "icStarEmptyLeft")
+                self.centerStar.image = UIImage(named: "icStarEmptyCenter")
+                self.rightStar.image = UIImage(named: "icStarEmptyRight")
+            }
+        } else if number == 1 {
+            DispatchQueue.main.async {
+                self.leftStar.image = UIImage(named: "icStarLeft")
+                self.centerStar.image = UIImage(named: "icStarEmptyCenter")
+                self.rightStar.image = UIImage(named: "icStarEmptyRight")
+            }
+        } else if number == 2 {
+            DispatchQueue.main.async {
+                self.leftStar.image = UIImage(named: "icStarLeft")
+                self.centerStar.image = UIImage(named: "icStarCenter")
+                self.rightStar.image = UIImage(named: "icStarEmptyRight")
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.leftStar.image = UIImage(named: "icStarLeft")
+                self.centerStar.image = UIImage(named: "icStarCenter")
+                self.rightStar.image = UIImage(named: "icStarRight")
+            }
+        }
+    }
+    
+    func setupsFor(indexPath: IndexPath) {
+         if let model = InfoModel.multipleCellsModel[String(describing: BadgeCellModel.self)] as? [BadgeCellModel] {
+            
+            if let badge = model[indexPath.row].badge {
+                DispatchQueue.main.async {
+                    self.badgeView.image = badge
+                }
+            }
+            if let ribbon = model[indexPath.row].badgeRibbon {
+                DispatchQueue.main.async {
+                    self.ribbonView.image = ribbon
+                }
+            }
+            if let numberOfStars = model[indexPath.row].numberOfStars {
+                DispatchQueue.main.async {
+                    self.installStarsWithAmount(numberOfStars)
+                }
+            }
+        }
+    }
+
+    
+}
+
+class BadgeCellModel: DataModel {
+    var badge: UIImage?
+    var badgeRibbon: UIImage?
+    var numberOfStars: Int?
+    
 }

@@ -11,11 +11,17 @@ import UIKit
 private let badgeCellId = "BadgeCell"
 
 class CityBadgesCell: UICollectionViewCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-
-
+  
+    var models: [DataModel]? {
+        didSet {
+            self.badgesCollectionView.reloadData()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
+
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -26,7 +32,7 @@ class CityBadgesCell: UICollectionViewCell, UICollectionViewDataSource, UICollec
     let badgesCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        
+
         let collectionView = UICollectionView(frame: CGRect(origin: CGPoint(x: 30, y: 0), size: CGSize(width: 320, height: 200)), collectionViewLayout: layout)
         
         collectionView.backgroundColor = UIColor.clear
@@ -35,7 +41,15 @@ class CityBadgesCell: UICollectionViewCell, UICollectionViewDataSource, UICollec
         return collectionView
     }()
     
+     func installData() {
+        if let model = InfoModel.multipleCellsModel[String(describing: BadgeCellModel.self)] as? [BadgeCellModel] {
+            models = model
+            badgesCollectionView.reloadData()
+        }
+    }
+    
     func setupViews() {
+        
         let nib = UINib.init(nibName: String(describing: BadgeCell.self), bundle: nil)
         self.badgesCollectionView.register(nib, forCellWithReuseIdentifier: badgeCellId)
         
@@ -44,10 +58,12 @@ class CityBadgesCell: UICollectionViewCell, UICollectionViewDataSource, UICollec
         badgesCollectionView.dataSource = self
         
     }
+
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return self.models?.count ?? 0
     }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -56,14 +72,16 @@ class CityBadgesCell: UICollectionViewCell, UICollectionViewDataSource, UICollec
         
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: badgeCellId, for: indexPath) as! BadgeCell
         
+        cell.setupsFor(indexPath: indexPath)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 5, left: 0, bottom: 5, right: 15)
+        return UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 15)
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 70, height: 165)
+        return CGSize(width: 70, height: collectionView.frame.height)
     }
 
 }
